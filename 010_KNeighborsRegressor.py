@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 data = pd.read_csv('datasets/Housing.csv')
 
 # Separar variables predictoras y objetivo
-X = data[['sqft_living', 'sqft_lot']]
+X = data[['area', 'bathrooms']]
 y = data['price']
 
 # Dividir los datos en conjuntos de entrenamiento y prueba
@@ -23,7 +23,7 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Validación cruzada para encontrar el mejor valor de K
-k_values = list(range(1, 21))   # Probar K de 1 a 20
+k_values = list(range(1, 61))   # Probar K de 1 a 20
 mse_scores = []
 
 for k in k_values:
