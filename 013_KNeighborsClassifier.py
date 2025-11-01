@@ -44,3 +44,28 @@ print(classification_report(y_test, y_pred))
 conf_matrix = confusion_matrix(y_test, y_pred)
 print('Matriz de Confusión:')
 print(conf_matrix)
+
+################# Mejor valor K
+
+from sklearn.model_selection import cross_val_score
+import matplotlib.pyplot as plt
+
+# Probar diferentes valores de K
+k_values = range(1, 26)
+cv_scores = []
+
+for k in k_values:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn, X_train, y_train, cv=10, scoring='accuracy')
+    cv_scores.append(scores.mean())
+
+# Seleccionar el K con la mayor exactitud
+optimal_k = k_values[cv_scores.index(max(cv_scores))]
+print(f'Mejor valor de K: {optimal_k}')
+
+# Gráfico de la exactitud en función de K
+plt.plot(k_values, cv_scores)
+plt.xlabel('Número de Vecinos K')
+plt.ylabel('Exactitud de Validación Cruzada')
+plt.title('Selección del Mejor K')
+plt.show()
