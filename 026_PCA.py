@@ -1,10 +1,7 @@
 # Importar las librerías necesarias
-import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.decomposition import PCA
-from sklearn.manifold import TSNE
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 # Cargar el conjunto de datos de iris
 iris = load_iris()
