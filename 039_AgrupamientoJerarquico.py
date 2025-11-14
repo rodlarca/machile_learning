@@ -20,3 +20,10 @@ plt.figure(figsize=(10, 7))
 dendrogram(Z)
 plt.title("Dendrograma de Agrupamiento Jerárquico")
 plt.show()
+
+# Generar el dendrograma con enlace completo
+Z_complete = linkage(X, method='complete')
+plt.figure(figsize=(10, 7))
+dendrogram(Z_complete)
+plt.title("Dendrograma con Enlace Completo")
+plt.show()
