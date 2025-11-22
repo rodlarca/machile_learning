@@ -22,7 +22,9 @@ model = Sequential([
 # Compilar el modelo
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-# Evaluar en el set de test
+# Entrenar el modelo
+model.fit(X_train, y_train, epochs=10, batch_size=64, validation_split=0.2)
+
+# Evaluar el modelo
 test_loss, test_acc = model.evaluate(X_test, y_test)
-print("Test loss:", test_loss)
-print("Test accuracy:", test_acc)
+print(f'Test accuracy: {test_acc:.4f}')
